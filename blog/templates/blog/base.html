@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     </head>
     <body>
         <div class="page-header">
@@ -13,13 +14,42 @@
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
             <h1><a href="/">Django Girls Blog</a></h1>
+            <input type="button" id="submit" value="カフェ">
+            <table id="table" border="1">
+                <tr><th>店舗名</th><th>アクセス</th></tr>
+            </table>
+            <script>
+            function showResult( result ) {
+                for ( var i in result.rest ) {
+                    $("#table").append("<tr><td>" + result.rest[ i ].name + "</td><td>" + result.rest[ i ].opentime )
+                }
+            }
+
+            $( function () {
+                var url = "https://api.gnavi.co.jp/RestSearchAPI/20150630/?callback=?"
+                var params = {
+                    keyid: "",
+                    format: "json",
+                    latitude: 34.702492,
+                    longitude: 135.495965,
+                    range: 3
+                }
+
+                $("#submit").on("click", function () {
+                    params.keyid = "720080a2660c9bab99f283596cb1d67f"
+                    $.getJSON( url, params, function( result ) {
+                        showResult( result )
+                    })
+                })
+            })
+            </script>
             <script type="text/javascript">
             function tasizan(){
                 var c = "こんにちは";
                 return c;
             }
             </script>
-            <input type="button" value="カフェ" onclick="alert(tasizan())">
+            <input type="button" value="ボタン" onclick="alert(tasizan())">
         </div>
         <div class="content container">
             <div class="row">
