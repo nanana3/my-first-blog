@@ -64,10 +64,8 @@
                         //var keyid = "355cd2656197f1f6c6f642913389eab4eb2d529cfc7d65efd83e6a27cda300c6"
                         var csvData = new Array();
                         var data = new XMLHttpRequest();
-                        data.open("GET", url, true);
-                        console.log("a");
-                        //data.send(null);
-                        console.log("b");
+                        data.open("GET", url);
+                        data.send();
                         data.onload = function(){
                             convertCSVtoArray(data.responseText); // 渡されるのは読み込んだCSVデータ
                         }
