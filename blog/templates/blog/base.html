@@ -65,7 +65,7 @@
                         var csvData = new Array();
                         var data = new XMLHttpRequest();
                         data.open("GET", url, true);
-                        data.send(null);
+                        //data.send(null);
 
                         data.onload = function(){
                             convertCSVtoArray(data.responseText); // 渡されるのは読み込んだCSVデータ
@@ -80,7 +80,7 @@
                         for(var i=0;i<tmp.length;++i){
                             result[i] = tmp[i].split(',');
                         }
-                        alert(result[1][2]); // 300yen
+                        alert(result[1][1]); // 300yen
                     }
 
                 /*$("#submit2").on("click", function () {
