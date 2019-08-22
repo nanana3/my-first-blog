@@ -65,11 +65,13 @@
                         var csvData = new Array();
                         var data = new XMLHttpRequest();
                         data.open("GET", url, true);
+                        console.log("a");
                         //data.send(null);
-
+                        console.log("b";)
                         data.onload = function(){
                             convertCSVtoArray(data.responseText); // 渡されるのは読み込んだCSVデータ
                         }
+                        console.log("d");
                     }
 
                     // 読み込んだCSVデータを二次元配列に変換する関数convertCSVtoArray()の定義
@@ -81,6 +83,7 @@
                             result[i] = tmp[i].split(',');
                         }
                         alert(result[1][1]); // 300yen
+                        console.log("c");
                     }
 
                 /*$("#submit2").on("click", function () {
