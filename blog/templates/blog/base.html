@@ -48,18 +48,18 @@
             </script>
 
             <!--周辺トイレ-->
-            <input type="button" id="submit2" value="トイレ">
-            <table id="table2" border="1">
+            <input type="button" id="submit2" value="トイレ" onclick="tokyo()">
+            <!--<table id="table2" border="1">
                 <tr><th>緯度</th><th>経度</th></tr>
-            </table>
+            </table>-->
             <script>
-            function showResult( result ) {
+            /*function showResult( result ) {
                 for ( var i in result.rest ) {
                     $("#table2").append("<tr><td>" + result.rest[ i ].name + "</td><td>" + result.rest[ i ].opentime )
                 }
-            }
+            }*/
 
-            $( function () {
+            function tokyo() {
                         var url = "https://api-tokyochallenge.odpt.org/api/v4/files/mlit/StationMap/Keio_Shinjuku_FacilityInfo.csv?acl:consumerKey=?"
                         var keyid = "355cd2656197f1f6c6f642913389eab4eb2d529cfc7d65efd83e6a27cda300c6"
                         var csvData = new Array();
@@ -74,13 +74,14 @@
                                         csvData.push(cells);
                                 }
                         }
-                        return csvData;
-                })
+                        console.log(csvData);
+                }
 
-                $("#submit2").on("click", function () {
+                /*$("#submit2").on("click", function () {
                     showResult(csvData);
                 })
-            })
+            })*/
+
             </script>
         </div>
         <div class="content container">
