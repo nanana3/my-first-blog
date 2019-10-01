@@ -44,4 +44,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
     def index(request):
-        return render (reuqest, 'blog/index.html')
+        return render(reuqest, 'blog/index.html')
+
+    def select(request):
+        return render(request, 'blog/select.html')
