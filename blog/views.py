@@ -43,8 +43,8 @@ def post_new(request):
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
 
-    def index(request):
-        return render(reuqest, 'blog/index.html')
+def index(request):
+    return render(reuqest, 'blog/index.html')
 
-    def select(request):
-        return render(request, 'blog/select.html')
+def select(request):
+    return render(request, 'blog/select.html')
